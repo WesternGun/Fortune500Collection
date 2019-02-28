@@ -1,2 +1,6 @@
-rootProject.name = 'Fortune500List'
-
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+	}
+}
+rootProject.name = 'fortune500collection'

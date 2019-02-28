@@ -1,6 +1,39 @@
+app:
+  data:
+    2018: http://fortune.com/fortune500/list/
+    extended: http://fortune.com/api/v2/list/2358051/expand/item/ranking/asc/
 
+logging:
+  level:
+    ROOT: INFO
+#    org.springframework:
+#      jdbc.core: DEBUG                                          # for Jdbc
+#      jdbc.core.JdbcTemplate: DEBUG                             # for JdbcTemplate
+#      jdbc.core.StatementCreatorUtils: TRACE                    # for JdbcTemplate
+#      transaction: DEBUG                                        # show Spring transaction detail
+    org.hibernate:
+      SQL: DEBUG                                                # show Hibernate log
+      type.descriptor.sql.BasicBinder: TRACE                    # show parameters
+#      engine.transaction.internal.TransactionImpl: DEBUG        # show Hibernate transaction impl detail
 
+spring:
+  jpa:
+    open-in-view: false
+    show-sql: true                                                # show SQL in stdout
+    hibernate.ddl-auto: update
+    hibernate.format_sql: true
+    hibernate.dialect: org.hibernate.dialect.DerbyTenSevenDialect # cannot define in "platform", only here
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true            # for clob exception not implemented exception
+      hibernate.jdbc.time_zone: UTC                               # this affect only the retrieved date from DB, and is overriden by app default timezone setting, which affect the retrieved and saved date in DB
+    ###### SQLITE Database config below #######
+    generate-ddl: false                                           # only when it is H2, change to true to create tables
+    datasource:
+      driverClassName:
+      url: jdbc:derby:fortune;create=true
+      username: sa
+      password:
+      initialize: false
+      validation-query: SELECT 1
+      test-while-idle: true
 
-
-data:
-  2018: http://www.fortunechina.com/fortune500/c/2018-07/19/content_311046.htm

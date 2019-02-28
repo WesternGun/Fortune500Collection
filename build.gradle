@@ -1,18 +1,25 @@
 plugins {
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
     id 'java'
 }
 
-group 'io.westerngun'
-version '1.0-SNAPSHOT'
+apply plugin: 'io.spring.dependency-management'
 
-sourceCompatibility = 1.8
+group = 'io.westerngun'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    // https://mvnrepository.com/artifact/org.eclipse/swt
-    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile 'org.jsoup:jsoup:1.11.3'
+    compile 'org.apache.derby:derby'
+    compileOnly 'org.projectlombok:lombok:1.18.6'
+    annotationProcessor 'org.projectlombok:lombok:1.18.6'
+
 }
