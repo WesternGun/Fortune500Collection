@@ -1,20 +1,22 @@
 package io.westerngun.fortune500collection;
 
 import io.westerngun.fortune500collection.parsing.PageParser;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.Assert;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 
-import java.util.List;
-
+@Slf4j
 public class Main {
 
-    @Value("${app.data}")
-    private List<String> dataByYear;
 
+    private static final String prefix = "app.data";
+
+    @Autowired
     private PageParser parser;
 
+    private Environment env;
 
     public void process() {
-        Assert.notEmpty(dataByYear, "Data URL cannot be read correctly, check application.yml key \"app.data\". ");
+
     }
 }

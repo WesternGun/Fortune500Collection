@@ -1,11 +1,14 @@
 app:
   data:
-    2018: http://fortune.com/fortune500/list/
-    extended: http://fortune.com/api/v2/list/2358051/expand/item/ranking/asc/
+    - year: 2018
+      base: http://fortune.com/fortune500/list/
+      ajax: http://fortune.com/api/v2/list/2358051/expand/item/ranking/asc/
 
 logging:
   level:
     ROOT: INFO
+      org.springframework:
+        web.servlet.mvc.method.annotation: DEBUG                # show request and Jackson error details
 #    org.springframework:
 #      jdbc.core: DEBUG                                          # for Jdbc
 #      jdbc.core.JdbcTemplate: DEBUG                             # for JdbcTemplate

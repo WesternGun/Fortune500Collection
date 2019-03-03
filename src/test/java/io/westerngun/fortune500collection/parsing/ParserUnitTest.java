@@ -10,8 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Optional;
 
 @RunWith(JUnit4.class)
-public class ParserTest {
-
+public class ParserUnitTest {
     @Autowired
     private PageParser parser;
 
@@ -28,5 +27,7 @@ public class ParserTest {
         // then
         Assert.assertTrue(doc.isPresent());
     }
+
+
 
 }

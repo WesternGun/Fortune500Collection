@@ -1,20 +1,28 @@
 package io.westerngun.fortune500collection.parsing;
 
+import io.westerngun.fortune500collection.FortuneData;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
 @Data
+@Component
+@NoArgsConstructor
+@AllArgsConstructor
 public class PageParser {
     private String url;
 
-    public Map<String, String> yearAndValues;
+    @Autowired
+    private FortuneData fortuneData;
 
     public Optional<Document> connect(String url) {
         try {
